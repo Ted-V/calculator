@@ -1,0 +1,1 @@
+This project is a part of The Odin Project's curriculum. The goal is to make a fully functional on-screen calculator using HTML, CSS, and JS. 
