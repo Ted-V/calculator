@@ -21,7 +21,7 @@ function inputNumber(number) {
 // Append decimal
 function inputDecimal(decimal) {
     // Allow for a decimal to be added to the second value of an expression
-    if(calculator.waitingOnSecondValue === true) {
+    if (calculator.waitingOnSecondValue === true) {
         calculator.displayValue = '0.';
         calculator.waitingOnSecondValue = false;
         return
