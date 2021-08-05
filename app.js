@@ -51,7 +51,7 @@ function handleOperator(nextOperator) {
     } else if (operator) {
         const result = evaluate(firstValue, inputValue, operator);
         // Store calculation result in display and set it to the first value
-        calculator.displayValue = String(result);
+        calculator.displayValue = `${parseFloat(result.toFixed(8))}`;
         calculator.firstValue = result;
     }
 
