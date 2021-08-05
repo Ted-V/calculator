@@ -20,6 +20,13 @@ function inputNumber(number) {
 }
 // Append decimal
 function inputDecimal(decimal) {
+    // Allow for a decimal to be added to the second value of an expression
+    if(calculator.waitingOnSecondValue === true) {
+        calculator.displayValue = '0.';
+        calculator.waitingOnSecondValue = false;
+        return
+    }
+
     // Only add a decimal if there already isn't one 
     if (!calculator.displayValue.includes(decimal)) {
         calculator.displayValue += decimal;
