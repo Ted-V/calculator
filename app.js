@@ -8,8 +8,8 @@ const calculator = {
 
 // Get value from number keys
 function inputNumber(number) {
-    const { displayValue } = calculator;
-    
+    const { displayValue, waitingOnSecondValue } = calculator;
+
     if (waitingOnSecondValue === true) {
         calculator.displayValue = number;
         calculator.waitingOnSecondValue = false;
@@ -32,14 +32,49 @@ function handleOperator(nextOperator) {
     // Convert display value to float
     const inputValue = parseFloat(displayValue);
 
+    // Check for existing operator, replace that operator
+    if (operator && calculator.waitingOnSecondValue) {
+        calculator.operator = nextOperator;
+        console.log(calculator);
+        return;
+    }
     if (firstValue === null && !isNaN(inputValue)) {
         // Store input into firstValue
         calculator.firstValue = inputValue;
+    } else if (operator) {
+        const result = evaluate(firstValue, inputValue, operator);
+        // Store calculation result in display and set it to the first value
+        calculator.displayValue = String(result);
+        calculator.firstValue = result;
     }
 
     // Now, the next number entered by the user will be used as the second value in the expression
     calculator.waitingOnSecondValue = true;
     calculator.operator = nextOperator;
+    console.log(calculator);
+}
+
+// Determine how to evaluate an expression
+function evaluate(firstValue, secondValue, operator) {
+    if (operator === '+') {
+        return firstValue + secondValue;
+    } else if (operator === '-') {
+        return firstValue - secondValue;
+    } else if (operator === '*') {
+        return firstValue * secondValue;
+    } else if (operator === '/') {
+        return firstValue / secondValue;
+    }
+    // If the operator is '=', return the second value as is 
+    return secondValue;
+}
+
+// Clear calculator aka reset to default state
+function resetCalculator() {
+    calculator.displayValue = '0';
+    calculator.firstValue = null;
+    calculator.waitingOnSecondValue = false;
+    calculator.operator = null;
     console.log(calculator);
 }
 
@@ -73,7 +108,8 @@ keys.addEventListener('click', (e) => {
     }
 
     if (target.classList.contains('all-clear')) {
-        console.log('clear', target.value);
+        resetCalculator();
+        updateDisplay();
         return;
     }
 
