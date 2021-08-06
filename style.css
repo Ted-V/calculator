@@ -1,8 +1,9 @@
 /* CSS Reset*/
+
 html {
     font-size: 62.5%;
     box-sizing: border-box;
-    background-color: #333;
+    background-color: rgb(94, 133, 120);
 }
 
 *, *::before, *::after {
@@ -12,14 +13,17 @@ html {
 }
 
 .calculator {
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border: 4px solid rgba(0, 0, 0, 0.397);
+    border-radius: 30px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 400px;
-    background: snow;
+    background: rgb(82, 82, 82);
+    padding-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .calculator-display {
@@ -27,8 +31,10 @@ html {
     font-size: 5rem;
     height: 80px;
     border: none;
-    background-color: #252525;
-    color: #fff;
+    border: 4px solid rgb(54, 51, 51);
+    border-radius: 20px;
+    background-color: #ffffffb4;
+    color: black;
     text-align: right;
     padding-right: 20px;
     padding-left: 10px;
@@ -37,28 +43,29 @@ html {
 button {
     height: 60px;
     background-color: #fff;
-    border-radius: 3px;
-    border: 1px solid #c4c4c4;
+    border-radius: 10px;
+    border: 2px solid #313131;
     background-color: transparent;
     font-size: 2rem;
-    color: #333;
+    color: rgb(255, 255, 255);
     background-image: linear-gradient(to bottom, transparent, transparent 50%, rgba(0, 0, 0, .04));
     box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05), inset 0 1px 0 0 rgba(255, 255, 255, .45), inset 0 -1px 0 0 rgba(255, 255, 255, .15), 0 1px 0 0 rgba(255, 255, 255, .15);
     text-shadow: 0 1px rgba(255, 255, 255, .4);
 }
 
 button:hover {
-    background-color: #eaeaea;
+    background-color: #424242;
+    cursor: pointer;
 }
 
 .all-clear {
-    background-color: #f08959;
-    border-color: #ee7d49;
+    background-color: #f87a3f;
+    border-color: #f57d46;
     color: #fff;
 }
 
 .all-clear:hover {
-    background-color: #ee7d49;
+    background-color: #ec6d31;
 }
 
 .equal-sign {
